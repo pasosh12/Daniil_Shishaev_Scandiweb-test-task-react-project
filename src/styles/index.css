@@ -1,0 +1,36 @@
+/*:root{*/
+/*  --light: #F3F3F3;*/
+/*  --dark:  #0F0F0F;*/
+/*  --primary:  #F6BA1E;*/
+/*  font-size: 16px;*/
+/*}*/
+
+/**{*/
+/*  padding: 0;*/
+/*  box-sizing: border-box;*/
+/*  font-family: 'Montserrat', sans-serif;*/
+/*}*/
+
+body{
+  font-family: Raleway;
+  margin: 0;
+  padding: 0;
+  padding-top: 120px;
+}
+/*.container{*/
+/*  padding-top: 120px;*/
+/*  max-width: 1238px;*/
+/*  margin: 0 auto;*/
+/*}*/
+/*button{*/
+/*  cursor: pointer;*/
+/*  transition: ease-in-out 80ms;*/
+/*}*/
+
+/*button:hover{*/
+/*  transform: scale(1.05);*/
+/*}*/
+
+/*button:active{*/
+/*  transform: scale(1);*/
+/*}*/

@@ -1,0 +1,334 @@
+.main{
+    margin-left: 32px;
+    margin-right: 32px;
+}
+.sadCart {
+    display: flex;
+    justify-content: center;
+    vertical-align: center;
+    height: 100%;
+}
+
+.sadCart .center {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sadCart .center svg {
+    margin: auto;
+}
+
+.sadCart .center p {
+    font-family: Raleway;
+    font-size: 24px;
+    text-align: center;
+}
+
+.cartPage .myBag {
+    font-family: Source Sans Pro;
+    font-weight: bold;
+    font-size: 32px;
+    text-transform: uppercase;
+    color: #1D1F22;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cartPage .myBag .itemCounter {
+    font-weight: normal;
+    font-size: 28px;
+}
+
+.cartPage .item {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #E5E5E5;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+}
+
+.cartPage .item .left .productName {
+    color: #000;
+    text-decoration: none;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 42px;
+}
+
+/*.cartPage .item .left .productName:hover {*/
+/*    text-decoration: underline;*/
+/*}*/
+
+.cartPage .item .left .productName p {
+    margin: 0;
+}
+
+.cartPage .item .left .productName p:nth-child(2) {
+    font-weight: normal;
+}
+
+.cartPage .item .left .price {
+    margin: 12px 0;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.cartPage .item .left .attributes {
+    margin-top: 24px;
+}
+
+.cartPage .item .left .attributes .attribute {
+    margin-top: 12px;
+}
+
+.cartPage .item .left .attributes .attribute .name {
+    margin-bottom: 6px;
+    font-family: Roboto Condensed;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.cartPage .item .left .attributes .attribute .attributeItems div {
+    cursor: default;
+}
+
+.attributeItems button.swatch  {
+    /*padding: 1%;*/
+    /*borderRadius: 5px;*/
+    /*fontWeight: bold;*/
+    /*/*fontSize: 0.5rem;*/
+    /*border: none;*/
+    /*color: white;*/
+    /*margin-left: 2px;*/
+}
+
+
+.attributeItems button.selected {
+    margin-left: 3px;
+}
+
+.cartPage .item .right {
+    display: flex;
+}
+
+.cartPage .item .mainImageContainer {
+    position: relative;
+    height: 200px;
+    width: 240px;
+    background-color: #fff;
+}
+
+.cartPage .item .mainImageContainer .productImage {
+    height: 200px;
+    width: 240px;
+    object-fit: contain;
+}
+
+.cartPage .item .mainImageContainer button {
+    font-family: raleway;
+    font-weight: bold;
+    font-size: 22px;
+    width: 48px;
+    position: absolute;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    mix-blend-mode: difference;
+}
+
+.cartPage .item .mainImageContainer button:hover {
+    cursor: pointer;
+    color: #777;
+}
+
+.cartPage .item .mainImageContainer button.prev {
+    left: 0;
+}
+
+.cartPage .item .mainImageContainer button.next {
+    right: 0;
+}
+
+.cartPage .item .deleteCross {
+    position: absolute;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    font-family: raleway;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.cartPage .item .deleteCross:hover {
+    cursor: pointer;
+}
+
+.cartPage .item .counter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 16px;
+}
+
+.cartPage .item .counter button {
+    background-color: #fff;
+    border: 2px solid #000;
+    font-family: Roboto;
+    font-size: 22px;
+    font-weight: 400;
+    width: 32px;
+    height: 32px;
+    color: #000;
+}
+
+.cartPage .item .counter button:hover:not(:disabled) {
+    cursor: pointer;
+}
+
+.cartPage .item .counter button:disabled {
+    border-color: #aaa;
+    color: #aaa;
+}
+
+.cartPage .item .counter p {
+    font-family: raleway;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.cartPage .total, .taxText, .quantity {
+    display: flex;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 18px;
+    /*padding-bottom: px;*/
+    padding-top: 8px;
+    align-items: center;
+}
+/**/
+.cartPage .total .price, .taxQuantityValue, .quantityValue{
+    margin-left: 8px;
+}
+/**/
+.cartPage .bottom {
+    padding: 16px 0;
+    background-color: #fff;
+    position: sticky;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.cartPage .bottom .buttons {
+    padding-top: 8px;
+    display: flex;
+    width: 279px ;
+    /*justify-content: space-between;*/
+}
+
+.cartPage .bottom .buttons .checkout {
+
+    border-style: none;
+    background-color: #5ECE7B;
+    color: #fff;
+}
+
+.cartPage .bottom .buttons .clearCart {
+    border: 2px solid #000;
+    background-color: #fff;
+}
+
+.cartPage .bottom .buttons .clearCart, .cartPage .bottom .buttons .checkout {
+    width: 49%;
+    font-family: raleway;
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+    border-radius: 0;
+    margin: 5px;
+    text-transform: uppercase;
+    height: 43px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.cartPage .bottom .buttons .clearCart:hover, .cartPage .bottom .buttons .checkout:hover {
+    cursor: pointer;
+}
+
+.productQuantity {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.productQuantity button {
+    width: 45px;
+    height: 45px;
+    background-color: #ffffff;
+    border: 2px solid;
+    border-radius: 3px;
+    font-size: 20px;
+}
+/*////////////////////////////////////////////////*/
+.attributes .name_attributes {
+
+    color: #1D1F22;
+    font-weight: 700;
+    font-size: 18px;
+    margin: 16px 0 8px 0;
+}
+.attributes .product_attributes {
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.attributes .product_attributes .new_attributes {
+    width: 60px;
+    height: 45px;
+    border: 1px solid #1D1F22;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 12px;
+    color: #1D1F22;
+    font-weight: 400;
+    font-size: 16px;
+}
+.attributes .product_attributes .color_attr {
+    width: 32px;
+    height: 32px;
+}
+.attributes .product_attributes .new_attributes.active {
+    transform: scale(1.1);
+    background-color: #1D1F22;
+    color: #FFFFFF;
+}
+.attributes .product_attributes .new_attributes.active.color_attr {
+    transform: scale(1.1);
+    border: 2px solid #5ECE7B;
+}
+.attributes .product_attributes .new_attributes:last-child {
+    margin-right: 0px;
+}

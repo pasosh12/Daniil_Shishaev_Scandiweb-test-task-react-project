@@ -1,0 +1,112 @@
+.flex_product_block {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    cursor: pointer;
+}
+
+.flex_product_block .product_pictures img {
+    cursor: pointer;
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 40px;
+    object-fit: contain;
+}
+
+.flex_product_block .main_img_product {
+    width: 610px;
+    height: 560px;
+    object-fit: contain;
+}
+
+.flex_product_block .description_product .prise_title {
+    color: #1D1F22;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin: 40px 0 10px 0;
+}
+
+.flex_product_block .description_product .size_title {
+    color: #1D1F22;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin: 0 0 10px 0;
+}
+
+.flex_product_block .description_product .price {
+    color: #1D1F22;
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+.flex_product_block .description_product .button_add_to_cart {
+    width: 292px;
+    height: 52px;
+    background-color: #5ECE7B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 30px 0;
+}
+
+.flex_product_block .description_product .text_description {
+    color: #1D1F22;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+
+}
+
+.name_product {
+    color: #1D1F22;
+    font-weight: 600;
+    font-size: 30px;
+    margin-bottom: 15px
+}
+
+.brand {
+    color: #1D1F22;
+    font-weight: 400;
+    font-size: 30px;
+}
+
+.outOfStock {
+    font-weight: 600;
+    text-transform: uppercase;
+    width: 100%;
+    height: 52px;
+    margin: 32px 0;
+    font-size: 16px;
+    padding: 16px 32px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.button_add_to_cart {
+
+    width: 292px;
+    height: 52px;
+    background-color: #5ECE7B;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-style: none;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 30px 0;
+}
+
