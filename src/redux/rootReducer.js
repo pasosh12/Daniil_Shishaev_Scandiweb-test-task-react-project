@@ -18,6 +18,7 @@ const CURRENCY_SYMBOL_UPDATE = 'CURRENCY_SYMBOL_UPDATE'
 
 const initialState = {
     category: "all",
+    isMiniBagOpen:false,
     productID: currentID,
     currency: preferredCurrency || "USD",
     currencySymbol : preferredCurrencySymbol || "",
@@ -43,11 +44,9 @@ const rootReducer = (state = initialState, action) => {
             return{
                 ...state,
                 categories: action.categories,
-                // currenciesArray: action.categories[0].products[0].prices.map(prices =>  prices.currency)
             }
         }
         case SET_ATTRIBUTES_ARRAY: {
-            console.log('reducer',action.attributes)
             return {
                 ...state,
                 attributes: action.attributes,
@@ -72,7 +71,6 @@ const rootReducer = (state = initialState, action) => {
             }
         }
         case SET_CURRENCIES_ARRAY: {
-            console.log(action.currenciesArray)
             return {
                 ...state,
                 currenciesArray : action.currenciesArray
@@ -117,14 +115,11 @@ const rootReducer = (state = initialState, action) => {
             const newBag = state.bag.map(item => {
                 if (item.id === action.id) {
                     if (item.quantity < 10) {
-                        console.log("increment")
                         return {
                             ...item,
                             quantity: Number(item.quantity) + 1
                         }
                     } else return item
-
-
                 } else return item
             })
             localStorage.setItem("bag", JSON.stringify(newBag))

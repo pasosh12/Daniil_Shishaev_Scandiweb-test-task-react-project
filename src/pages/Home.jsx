@@ -5,7 +5,7 @@ import {store} from "../redux/store"
 import Product from '../components/Product'
 import {gql} from "@apollo/client"
 import {graphql} from "@apollo/client/react/hoc";
-import NavbarContainer from "../components/NavbarContainer";
+import NavbarContainer from "../components/NavBar/NavbarContainer";
 
 
 class Home extends React.Component {

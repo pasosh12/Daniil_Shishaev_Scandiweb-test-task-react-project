@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import CartItem from "../components/CartItem";
 import CartItem2 from "../components/CartItem2";
 import  '../styles/cart.css'
-import NavbarContainer from "../components/NavbarContainer";
+import NavbarContainer from "../components/NavBar/NavbarContainer";
 
 class Cart extends React.Component {
 
@@ -13,7 +13,6 @@ class Cart extends React.Component {
         const totalPrices = [];
         let currentCurrencySymbol = ''
         let totalQuantityProducts = this.props.bagItems.map(item => item.quantity).reduce((prev, curr) => prev + curr, 0)
-        console.log(this.props.bagItems)
         return (
             <div>
                 <button onClick={this.props.clearBagItems}>удалить </button>

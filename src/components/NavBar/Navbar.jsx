@@ -1,16 +1,15 @@
 // import {Badge} from "@material-ui/core";
 
 import React from "react";
-import "../styles/navbarDesktopView.css";
+import "../../styles/navbarDesktopView.css";
 import styled from "styled-components";
-import CartLogoImage from "../assets/images/CartLogo.svg"
-import {ReactComponent as ShoppingCartLogo} from "../assets/images/ShoppingCart.svg"
+import CartLogoImage from "../../assets/images/CartLogo.svg"
+import {ReactComponent as ShoppingCartLogo} from "../../assets/images/ShoppingCart.svg"
 import {Link, NavLink} from "react-router-dom";
-import {store} from "../redux/store";
+import {store} from "../../redux/store";
 import Minibag from "./MiniBag";
-import upArrow from "../assets/images/upArrow.svg"
-import downArrow from "../assets/images/downArrow.svg"
-import CartLogoComponent from "./CartLogoComponent";
+import upArrow from "../../assets/images/upArrow.svg"
+import downArrow from "../../assets/images/downArrow.svg"
 
 
 const Logo = styled.img.attrs(
@@ -53,11 +52,9 @@ class Navbar extends React.Component {
         this.props.changeCurrencySymbol(currentCurrencySymbol)
         localStorage.setItem("preferredCurrency", e.target.value);
         localStorage.setItem("preferredCurrencySymbol", currentCurrencySymbol);
-
-
     };
 
-    showMiniBag = () => {
+    toggleMiniBag = () => {
         this.setState({
             isMiniBagOpen: !this.state.isMiniBagOpen,
         });
@@ -119,8 +116,6 @@ class Navbar extends React.Component {
                             {/*<div className='smallContainer'>*/}
                             <div className='currencyButtonContainer'>
                                 <div className='currencyButton'>
-
-
                                     <div> {this.props.currencySymbol}</div>
                                     {this.state.isCurrencyArrayOpen ?
                                         <img src={upArrow} onClick={this.showCurrencies}/> :
@@ -143,22 +138,21 @@ class Navbar extends React.Component {
                                 </div>
                             </div>
                             <div className='shoppingCartButtonContainer'>
-                                <button className='shoppingCartButton' onClick={this.showMiniBag}>
+                                <button className='shoppingCartButton' onClick={this.toggleMiniBag}>
                                     <ShoppingCartLogo/>
+
                                     <span className='totalItems'>{this.props.cartQuantity}</span>
                                 </button>
                             </div>
-                            <CartLogoComponent/>
-                            {/*{*/}
-                            {/*    this.state.isMiniBagOpen ? (*/}
-                            {/*            <Minibag*/}
-                            {/*                currency={this.props.currency}*/}
-                            {/*                onClickOutside={this.onClickOutsideOverlay}*/}
-                            {/*            />*/}
-                            {/*        )*/}
-                            {/*        :*/}
-                            {/*        ''*/}
-                            {/*}*/}
+
+                            {
+                                this.state.isMiniBagOpen ? (
+                                        <Minibag
+                                            currency={this.props.currency}
+                                            toggleMiniBag={this.toggleMiniBag}
+                                        />
+                                    ) : ''
+                            }
                         </div>
                     </div>
                 </div>

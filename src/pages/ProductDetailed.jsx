@@ -5,7 +5,7 @@ import {Query} from '@apollo/client/react/components'
 import {store} from '../redux/store';
 import {connect} from 'react-redux'
 import '../styles/ProductDetailed.css'
-import NavbarContainer from "../components/NavbarContainer";
+import NavbarContainer from "../components/NavBar/NavbarContainer";
 // import AttributeItem from "../components/AttributeItem";
 import AttributeProductPage from "../components/ProductPage/AttributeProductPage";
 

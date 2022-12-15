@@ -84,7 +84,7 @@ class Product extends Component {
         const productInStockFlag = this.props.data.inStock
         return (
             <>
-                <button onClick={this.props.clearBagItems}>удалить </button>
+                {/*<button onClick={this.props.clearBagItems}>удалить </button>*/}
                 {this.state.isModalOpened && this.props.data
                     ?
                     <ModalAddBusketProduct data={this.props.data} closeModal={this.closeModal}/>
