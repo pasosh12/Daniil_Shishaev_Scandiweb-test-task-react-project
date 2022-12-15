@@ -42,7 +42,7 @@ class Product extends Component {
         e.preventDefault();
 
         const x = this.props.data.name;
-        console.log('x', x)
+        // console.log('x', x)
         const item = store.getState().bag.find((item) => {
             return item.name === x;
         });
@@ -84,7 +84,7 @@ class Product extends Component {
         const productInStockFlag = this.props.data.inStock
         return (
             <>
-
+                <button onClick={this.props.clearBagItems}>удалить </button>
                 {this.state.isModalOpened && this.props.data
                     ?
                     <ModalAddBusketProduct data={this.props.data} closeModal={this.closeModal}/>

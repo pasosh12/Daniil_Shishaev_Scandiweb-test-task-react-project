@@ -6,7 +6,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 import {Routes} from "react-router";
 import './styles/index.css'
 import ModalAddBusketProduct from "./components/ModalProductAddBusket";
-import ProductDetailed2 from "./components/ProductDetailed2";
+
 
 const production = process.env.REACT_APP_ENV === 'production';
 

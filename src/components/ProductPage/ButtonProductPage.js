@@ -7,70 +7,49 @@ import {store} from "../../redux/store";
 class ButtonProductPage extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            notAttributesProductText: '',
-            product: {
-                attributes: {}
-            },
-        }
+        this.state = {}
+
     }
 
-    createProductObject = () => {
+
+    handleChoice = (attributeName, item, colorAttributeArray) => {
+
+        const attributesArray = attributeName.slice()
+        Array.prototype.push.apply(attributesArray, colorAttributeArray);
+
         const product = {
-            name: this.props.item.name,
-            prices: this.props.price,
-            image: this.props.item.gallery[0],
-            brand: this.props.item.brand,
+            name: item.name,
+            price: this.props.price,
+            image: item.gallery[0],
+            brand: item.brand,
             quantity: 1,
             id: Math.floor(Math.random() * 1000),
-            attributes: {}
+            prices: item.prices,
+            attributes: item.attributes,
+            selectedAttributes: attributesArray
         }
 
-        this.props.item.attributes.forEach(attribute => {
-            product.attributes[attribute.name] = ""
-        });
-
-        this.setState({
-            product: product
-        })
+        this.props.addtoBag(product)
     }
-    handleChoice = (attributeName, itemID) => {
-        // console.log('attributeName ', attributeName, 'itemID ', itemID)
-        this.setState({
-            product: {
-                ...this.state.product,
-                attributeSelected: false,
-                attributes: {
-                    ...this.state.product.attributes,
-                    [attributeName]: itemID
 
-                }
-            },
-
-        })
-    }
     addToBag = (e) => {
-        // e.preventDefault();
-        this.handleChoice()
-        console.log(this.state)
-        // const x = this.props.item.name;
-        // const item = store.getState().bag.find((item) => {
-        //     return item.name === x;
-        // });
+
+        this.handleChoice(this.props.classNameState, this.props.item, this.props.massColorProduct)
+
+        const x = this.props.item.name;
+        const item = store.getState().bag.find((item) => {
+            return item.name === x;
+        });
         // console.log(item)
-        // if (item) {
-        //     this.props.incrementQunatity(item.id)
-        //     console.log('item.id ', item.id)
-        // } else this.props.addtoBag(this.state.product);
+        if (item) {
+            this.props.incrementQunatity(item.id)
+            console.log('item.id ', item.id)
+        } else this.props.addtoBag(this.state.product);
     }
 
     render() {
-        console.log(this.props.price)
-        console.log('mascolorProd',this.props.massColorProduct)
-        console.log('clasname',this.props.classNameState)
-        // console.log(this.props.item)
+        // console.log(this.props)
         return (
-
 
             // <buttonProductPageContext.Consumer>
 
@@ -112,11 +91,12 @@ class ButtonProductPage extends React.Component {
                              // }
                          }}
 
-                    >ADD TO CART
+                    >
+                        ADD TO CART
                     </div>
                 </div>
-                {this.state.notAttributesProductText &&
-                    <div className="not_attributes_product">{this.state.notAttributesProductText}</div>}
+                {this.state.classNameState &&
+                    <div className="not_attributes_product">No product parameters chosen</div>}
             </Fragment>
             // }
             // </>
@@ -128,8 +108,9 @@ class ButtonProductPage extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        incrementQunatity: (id) => dispatch({type: "QUANTITY_INC", id}),
         addtoBag: (product) => dispatch({type: "ADD_TO_BAG", product}),
     }
 }
 
-export default connect(mapDispatchToProps)(ButtonProductPage)
+export default connect(null, mapDispatchToProps)(ButtonProductPage)

@@ -14,6 +14,7 @@ export default class AttributeProductPage extends React.Component {
 
     render() {
 
+                    console.log(this.props.item.attributes)
         return (
             <Fragment>
                 {
@@ -24,12 +25,13 @@ export default class AttributeProductPage extends React.Component {
                                 {
                                     el.id === "Color"
                                         ?
+                                        // null
                                         el.items.map(it =>
                                             <div className={this.state.massColorProduct.filter(item => item.name === it.id).length ? "new_attributes active" : "new_attributes"}
                                                  onClick={() => {
                                                      this.state.massColorProduct.length
-                                                         ? this.setState({ massColorProduct: this.state.massColorProduct.map(item => item.id !== it.id ? { element: this.props.item.id, title: el.name, name: it.id, value: it.value } : item) })
-                                                         : this.setState({ massColorProduct: [{ element: this.props.item.id, title: el.name, name: it.id, value: it.value }] })
+                                                         ? this.setState({ massColorProduct: this.state.massColorProduct.map(item => item.id !== it.id ? { element: this.props.item.id, title: el.name, name: it.id, value: it.value, id: el.id} : item) })
+                                                         : this.setState({ massColorProduct: [{ element: this.props.item.id, title: el.name, name: it.id, value: it.value, id: el.id}] })
                                                  }}
                                                  style={{ backgroundColor: `${it.value}` }} key={it.id}>
                                             </div>
@@ -39,13 +41,14 @@ export default class AttributeProductPage extends React.Component {
                                             <div className={this.state.classNameState.filter(item => item.title === el.name && item.value === it.id).length ? "new_attributes active" : "new_attributes"}
                                                  onClick={() => {
                                                      this.state.classNameState.filter(item => item.title === el.name).length
-                                                         ? this.setState({ classNameState: this.state.classNameState.map(item => item.title === el.name ? { element: this.props.item.id, title: el.name, name: it.id, value: it.id } : item) })
-                                                         : this.setState({ classNameState: [...this.state.classNameState, { element: this.props.item.id, title: el.name, name: it.id, value: it.id }] })
+                                                         ? this.setState({ classNameState: this.state.classNameState.map(item => item.title === el.name ? { element: this.props.item.id, title: el.name, name: it.id, value: it.id, id: el.id } : item) })
+                                                         : this.setState({ classNameState: [...this.state.classNameState, { element: this.props.item.id, title: el.name, name: it.id, value: it.id,  id: el.id }] })
                                                  }}
                                                  key={it.id + '_' + el.name}
                                             >{it.value}
                                             </div>
                                         )
+                                    // null
                                 }
                             </div>
                         </div>

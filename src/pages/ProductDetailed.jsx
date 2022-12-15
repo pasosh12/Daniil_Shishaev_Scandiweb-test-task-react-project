@@ -1,14 +1,13 @@
 import React, {Component} from 'react'
-import ProductOptions from '../components/ProductOption'
+// import ProductOptions from '../components/ProductOption'
 import {gql} from "@apollo/client"
 import {Query} from '@apollo/client/react/components'
 import {store} from '../redux/store';
 import {connect} from 'react-redux'
 import '../styles/ProductDetailed.css'
 import NavbarContainer from "../components/NavbarContainer";
-import AttributeItem from "../components/AttributeItem";
+// import AttributeItem from "../components/AttributeItem";
 import AttributeProductPage from "../components/ProductPage/AttributeProductPage";
-import {GET_PRODUCTS} from "../graphQl/GetProduct";
 
 
 class ProductDetailed extends Component {
@@ -74,9 +73,9 @@ class ProductDetailed extends Component {
                     if (loading) return <h1 style={{textAlign: "center", margin: "10rem"}}>Loading...</h1>
 
                     else {
-                        console.log(data)
-                        const currentCurrencyPrice = data ? data.product.prices.find(currency => currency.currency.label === this.state.currency) : null
 
+                        const currentCurrencyPrice = data ? data.product.prices.find(currency => currency.currency.label === this.state.currency) : null
+                        console.log(data.product)
                         return (
                             <>
                                 <NavbarContainer/>
@@ -98,6 +97,7 @@ class ProductDetailed extends Component {
                                         <div
                                             className='price'>{currentCurrencyPrice.currency.symbol}{currentCurrencyPrice.amount}</div>
                                         {/*<ProductOptions data={data.product}/>*/}
+
                                         {data.product.inStock ?
                                             <AttributeProductPage item={data.product}
                                                                   price={currentCurrencyPrice.amount}/>

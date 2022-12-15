@@ -7,12 +7,14 @@ import '../styles/cart.css'
 import CartGallery from "./CartGallery";
 import AttributeItem from "./AttributeItem";
 import AttributeProductPage from "./ProductPage/AttributeProductPage";
+import AttributesActive from "./ProductPage/AttributesActive";
 
 class CartItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
             quantity: this.props.data.quantity,
+            // currency: this.props.cu
         };
     }
 
@@ -33,6 +35,7 @@ class CartItem extends Component {
 
     componentWillUnmount() {
         this.unsub();
+
     }
 
     increment = () => {
@@ -50,6 +53,7 @@ class CartItem extends Component {
 
     render() {
         let el = this.props.data;
+
         return (
             <div className='item'>
                 <div className='left'>
@@ -68,41 +72,8 @@ class CartItem extends Component {
                     </div>
 
                     <div className='attributes'>
-                    {/*    {console.log(this.props.data)}*/}
-                    {/*    {console.log(this.props.price.amount)}*/}
-                    {/*    /!*<AttributeProductPage  item={this.props.data}*!/*/}
-                    {/*    /!*                       price={this.props.price.amount}>*!/*/}
+                        <AttributesActive data={this.props.data}/>
 
-                    {/*    /!*</AttributeProductPage>*!/*/}
-                    {/*    /!*<AttributeItem></AttributeItem>*!/*/}
-
-                    {/*/////////////////////////////////////////////////////////////*/}
-
-                    {
-
-                        // el.attributes.map(item =>
-                        //     <div className="attributes" key={item.id}>
-                        //         <div className="name_attributes">{item.name + ':'}</div>
-                        //         <div className="product_attributes">
-                        //             {
-                        //                 item.id === "Color"
-                        //                     ?
-                        //                     item.items.map(it =>
-                        //                         <div
-                        //                             className={el.attributes.filter(i => i.name === it.id && i.title === item.id)[0] ? "new_attributes color_attr active" : "new_attributes color_attr"}
-                        //                             style={{backgroundColor: `${it.value}`}} key={it.id}></div>
-                        //                     )
-                        //                     :
-                        //                     item.items.map(it =>
-                        //                         <div
-                        //                             className={el.attributes.filter(i => i.name === it.id && i.title === item.id)[0] ? "new_attributes active" : "new_attributes"}
-                        //                             key={it.id}> {it.value}</div>
-                        //                     )
-                        //             }
-                        //         </div>
-                        //     </div>
-                        // )
-                    }
                     </div>
 
                     {/*////////////////////////////////////////////*/}
@@ -112,16 +83,21 @@ class CartItem extends Component {
                     {/*/!*         </span>);*!/*/}
                     {/*/!*})}*!/*/}
                 </div>
+                {/*{data.product.inStock ?*/}
+                {
 
+
+                    // :
+                    // <div className='outOfStock'>Out of stock</div>
+                }
                 <div className='right'>
                     {/*<div className={styles.productQuantity}>*/}
                     <div className='counter'>
 
                         <button onClick={this.increment}>+</button>
-                        <p>{this.state.quantity}</p>
+                        <p className='productQuantity'>{this.state.quantity}</p>
                         <button onClick={this.decrement}>-</button>
                     </div>
-                    {/*{console.log(this.props.data.name, this.props.data.gallery, this.props.data)}*/}
                     {/*<CartGallery name={this.props.data.name} gallery={this.props.data.gallery} />*/}
                     <div className='mainImageContainer'>
                         <img
@@ -131,18 +107,9 @@ class CartItem extends Component {
                             alt="prod"
                         />
 
-                        {/*<button*/}
-                        {/*    onClick={this.removeItem}*/}
-                        {/*    className='next'*/}
-                        {/*/>*/}
+
                     </div>
-                    {/*<img*/}
-                    {/*    src={deleteIcon}*/}
-                    {/*    width="32"*/}
-                    {/*    height="auto"*/}
-                    {/*    alt="trash can icon"*/}
-                    {/*/>*/}
-                    {/*</button>*/}
+
                 </div>
             </div>);
     }

@@ -7,9 +7,10 @@ import CartLogoImage from "../assets/images/CartLogo.svg"
 import {ReactComponent as ShoppingCartLogo} from "../assets/images/ShoppingCart.svg"
 import {Link, NavLink} from "react-router-dom";
 import {store} from "../redux/store";
-import CartSlider from "./MiniBag";
+import Minibag from "./MiniBag";
 import upArrow from "../assets/images/upArrow.svg"
 import downArrow from "../assets/images/downArrow.svg"
+import CartLogoComponent from "./CartLogoComponent";
 
 
 const Logo = styled.img.attrs(
@@ -89,8 +90,6 @@ class Navbar extends React.Component {
 
                 <div className='header'>
                     <div className='headerContainer'>
-
-
                         <nav className='navigation'>
 
                             <Link to={{pathname: '/'}} className='link'>
@@ -149,17 +148,17 @@ class Navbar extends React.Component {
                                     <span className='totalItems'>{this.props.cartQuantity}</span>
                                 </button>
                             </div>
-                            {/*</div>*/}
-                            {
-                                this.state.isMiniBagOpen ? (
-                                        <CartSlider
-                                            currency={this.props.currency}
-                                            onClickOutside={this.onClickOutsideOverlay}
-                                        />
-                                    )
-                                    :
-                                    ''
-                            }
+                            <CartLogoComponent/>
+                            {/*{*/}
+                            {/*    this.state.isMiniBagOpen ? (*/}
+                            {/*            <Minibag*/}
+                            {/*                currency={this.props.currency}*/}
+                            {/*                onClickOutside={this.onClickOutsideOverlay}*/}
+                            {/*            />*/}
+                            {/*        )*/}
+                            {/*        :*/}
+                            {/*        ''*/}
+                            {/*}*/}
                         </div>
                     </div>
                 </div>

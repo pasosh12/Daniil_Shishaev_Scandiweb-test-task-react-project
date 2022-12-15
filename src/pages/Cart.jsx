@@ -13,7 +13,7 @@ class Cart extends React.Component {
         const totalPrices = [];
         let currentCurrencySymbol = ''
         let totalQuantityProducts = this.props.bagItems.map(item => item.quantity).reduce((prev, curr) => prev + curr, 0)
-        // console.log(this.props)
+        console.log(this.props.bagItems)
         return (
             <div>
                 <button onClick={this.props.clearBagItems}>удалить </button>
@@ -32,37 +32,37 @@ class Cart extends React.Component {
                             totalPrices.push(
                                 Math.ceil(item.quantity * currentCurrencyPrice.amount)
                             );
-                            {console.log(item)}
+
 
                             return (
 
                                 <CartItem key={item.id} price={currentCurrencyPrice} data={item} />
-                                // <CartItem2 key={item.id} price={currentCurrencyPrice} data={item} />
-                            );
+                                 );
                         })}
                     </div>
                     <div className='bottom'>
-                        <div className='taxText'>
-                            <div>Tax 21%:</div>
-                            <div className='taxQuantityValue'>
+                        <div className='tax'> Tax 21%:
+                            {/*<div>Tax 21%:</div>*/}
+                            <span className='taxQuantityValue'>
                                 {currentCurrencySymbol}
                                 {totalPrices.reduce((prev, nxt) => prev + nxt, 0)*0.21}
-                            </div>
+                            </span>
                         </div>
-                        <div className='quantity'>
-                            <div>Quantity</div>
-                            <div className='quantityValue'> {totalQuantityProducts}</div>
+                        <div className='quantity'> Quantity
+                            {/*<div>Quantity</div>*/}
+                            <span className='quantityValue'> {totalQuantityProducts}</span>
                         </div>
-                        <div className='total'>
-                            <div>Total:</div>
-                            <div className='price'>
+                        <div className='total'> Total :
+                            {/*<span>Total:</span>*/}
+                            {/*<div className='price'>*/}
+                            <span>
                                 {currentCurrencySymbol}
                                 {totalPrices.reduce((prev, nxt) => prev + nxt, 0)}{" "}
-                            </div>
+                            </span>
                         </div>
                         <div className='buttons'>
                             <button className='checkout'>
-                                Order
+                                ORDER
                             </button>
                         </div>
                     </div>
