@@ -12,11 +12,11 @@ class ButtonProductPage extends React.Component {
     }
 
 
-    handleChoice = (attributeName, item, colorAttributeArray) => {
+    createProduct = (attributeName, item, colorAttributeArray) => {
 
-        const attributesArray = attributeName.slice()
+        const attributesArray = attributeName
+            // .slice()
         Array.prototype.push.apply(attributesArray, colorAttributeArray);
-
         const product = {
             name: item.name,
             price: this.props.price,
@@ -28,23 +28,23 @@ class ButtonProductPage extends React.Component {
             attributes: item.attributes,
             selectedAttributes: attributesArray
         }
-
-        this.props.addtoBag(product)
+        return product
+        // this.props.addtoBag(product)
     }
 
     addToBag = (e) => {
+        const product = this.createProduct(this.props.classNameState, this.props.item, this.props.massColorProduct)
 
-        this.handleChoice(this.props.classNameState, this.props.item, this.props.massColorProduct)
+        console.log(product)
 
-        const x = this.props.item.name;
         const item = store.getState().bag.find((item) => {
-            return item.name === x;
-        });
-        // console.log(item)
-        if (item) {
-            this.props.incrementQunatity(item.id)
-            console.log('item.id ', item.id)
-        } else this.props.addtoBag(this.state.product);
+            return (item.name === product.name &&  JSON.stringify(item.selectedAttributes) === JSON.stringify(product.selectedAttributes))
+        })
+
+            console.log('item', item)
+        if (item) this.props.incrementQunatity(item.id)
+        else  this.props.addtoBag(product);
+
     }
 
     render() {

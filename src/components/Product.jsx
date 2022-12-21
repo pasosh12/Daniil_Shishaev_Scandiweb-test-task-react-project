@@ -66,12 +66,10 @@ class Product extends Component {
     }
 
     closeModal=(b) =>{
-        console.log('closings')
         this.setState({isModalOpened: false})
     }
 
     basketButton = (id) => {
-        console.log('add', id)
         this.props.data.id === id && this.setState({focus: `${this.props.data.id}`})
     }
     basketButtonRemove = (id) => {
@@ -79,12 +77,11 @@ class Product extends Component {
     }
 
     render() {
-        // console.log(this.props.data)
         const currentCurrencyPrice = this.props.data.prices.find(currency => currency.currency.label === this.state.currency)
         const productInStockFlag = this.props.data.inStock
         return (
             <>
-                {/*<button onClick={this.props.clearBagItems}>удалить </button>*/}
+                <button onClick={this.props.clearBagItems}>удалить </button>
                 {this.state.isModalOpened && this.props.data
                     ?
                     <ModalAddBusketProduct data={this.props.data} closeModal={this.closeModal}/>

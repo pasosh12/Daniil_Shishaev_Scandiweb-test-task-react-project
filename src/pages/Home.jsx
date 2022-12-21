@@ -18,18 +18,14 @@ class Home extends React.Component {
         }
     }
 
-
     componentDidMount() {
-
         this.unsubscribe = store.subscribe(() => {
             this.setState({
                 category: store.getState().category,
                 currency: store.getState().currency,
-
             })
         })
     }
-
 
     componentWillUnmount() {
         this.unsubscribe()
@@ -52,11 +48,10 @@ class Home extends React.Component {
     render() {
         return (
             <>
-
                 {this.props.data.categories  && (
                     <>
                         <NavbarContainer />
-                        <h1>{this.state.category}</h1>
+                        <div className='categoryTitle'>{this.state.category}</div>
                         <div className={styles.productsList}>{this.showProducts()}</div>
                     </>
                 )}

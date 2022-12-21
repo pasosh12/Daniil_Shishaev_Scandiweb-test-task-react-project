@@ -4,6 +4,8 @@ import "../../styles/Attributes.css"
 export default class AttributesActive extends React.Component {
     render() {
         const bagProduct = this.props.data
+        // console.log('attr',bagProduct.attributes)
+        // console.log('selected attr',bagProduct.selectedAttributes)
         return (
             bagProduct.attributes.map(item =>
                 <div className="attributes" key={item.id}>

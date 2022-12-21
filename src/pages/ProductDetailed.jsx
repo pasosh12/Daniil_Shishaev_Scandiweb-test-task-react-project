@@ -1,12 +1,10 @@
 import React, {Component} from 'react'
-// import ProductOptions from '../components/ProductOption'
+import '../styles/ProductDetailed.css'
 import {gql} from "@apollo/client"
 import {Query} from '@apollo/client/react/components'
 import {store} from '../redux/store';
 import {connect} from 'react-redux'
-import '../styles/ProductDetailed.css'
 import NavbarContainer from "../components/NavBar/NavbarContainer";
-// import AttributeItem from "../components/AttributeItem";
 import AttributeProductPage from "../components/ProductPage/AttributeProductPage";
 
 
@@ -75,8 +73,7 @@ class ProductDetailed extends Component {
                     else {
 
                         const currentCurrencyPrice = data ? data.product.prices.find(currency => currency.currency.label === this.state.currency) : null
-                        console.log(data.product)
-                        return (
+                         return (
                             <>
                                 <NavbarContainer/>
                                 <div className='flex_product_block'>

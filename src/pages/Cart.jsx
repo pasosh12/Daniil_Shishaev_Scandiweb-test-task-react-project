@@ -1,82 +1,73 @@
 import React from "react";
-import {mobile} from "../responsive";
 import {connect} from "react-redux";
 import CartItem from "../components/CartItem";
-import CartItem2 from "../components/CartItem2";
-import  '../styles/cart.css'
+import '../styles/cart.css'
 import NavbarContainer from "../components/NavBar/NavbarContainer";
 
+
 class Cart extends React.Component {
-
-
+   rounded = (number) => {
+        return +number.toFixed(2)
+    }
     render() {
         const totalPrices = [];
         let currentCurrencySymbol = ''
         let totalQuantityProducts = this.props.bagItems.map(item => item.quantity).reduce((prev, curr) => prev + curr, 0)
         return (
             <div>
-                <button onClick={this.props.clearBagItems}>удалить </button>
+                <button onClick={this.props.clearBagItems}>удалить</button>
                 <NavbarContainer/>
                 <div className='main'>
-                <div className='cartPage'>
-                    <div className='myBag'>
-                        <div>Cart</div>
-                    </div>
-                    <div className='items'>
-                        {this.props.bagItems.map((item) => {
-                            const currentCurrencyPrice = item.prices.find(
-                                (currency) => currency.currency.label === this.props.currency);
-                            currentCurrencySymbol = currentCurrencyPrice.currency.symbol
+                    <div className='cartPage'>
+                        <div className='myBag'>
+                            <div>Cart</div>
+                        </div>
+                        <div className='items'>
+                            {this.props.bagItems.map((item) => {
+                                const currentCurrencyPrice = item.prices.find(
+                                    (currency) => currency.currency.label === this.props.currency);
+                                currentCurrencySymbol = currentCurrencyPrice.currency.symbol
 
-                            totalPrices.push(
-                                Math.ceil(item.quantity * currentCurrencyPrice.amount)
-                            );
-
-
-                            return (
-
-                                <CartItem key={item.id} price={currentCurrencyPrice} data={item} />
-                                 );
-                        })}
-                    </div>
-                    <div className='bottom'>
-                        <div className='tax'> Tax 21%:
-                            {/*<div>Tax 21%:</div>*/}
-                            <span className='taxQuantityValue'>
+                                totalPrices.push(item.quantity * currentCurrencyPrice.amount);
+                                return (
+                                    <CartItem key={item.id} currentCurrencySymbol={currentCurrencySymbol} price={currentCurrencyPrice} data={item}/>
+                                );
+                            })}
+                        </div>
+                        <div className='bottom'>
+                            <div className='tax'> Tax 21%:
+                                <span className='taxQuantityValue'>
                                 {currentCurrencySymbol}
-                                {totalPrices.reduce((prev, nxt) => prev + nxt, 0)*0.21}
+                                    {this.rounded(totalPrices.reduce((prev, nxt) => prev + nxt, 0)*0.21)}
                             </span>
-                        </div>
-                        <div className='quantity'> Quantity
-                            {/*<div>Quantity</div>*/}
-                            <span className='quantityValue'> {totalQuantityProducts}</span>
-                        </div>
-                        <div className='total'> Total :
-                            {/*<span>Total:</span>*/}
-                            {/*<div className='price'>*/}
-                            <span>
+                            </div>
+                            <div className='quantity'> Quantity
+                                <span className='quantityValue'> {totalQuantityProducts}</span>
+                            </div>
+                            <div className='total'> Total :
+                                <span>
                                 {currentCurrencySymbol}
-                                {totalPrices.reduce((prev, nxt) => prev + nxt, 0)}{" "}
+                                    {
+                                        this.rounded(totalPrices.reduce((prev, nxt) => prev + nxt, 0))
+                                    }
                             </span>
-                        </div>
-                        <div className='buttons'>
-                            <button className='checkout'>
-                                ORDER
-                            </button>
+                            </div>
+                            <div className='buttons'>
+                                <button className='checkout'>
+                                    ORDER
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </div>
             </div>
         );
     }
 };
 const mapStateToProps = (state) => {
-    // console.log(state)
     return {
         bagItems: state.bag,
         currency: state.currency,
-
     };
 };
 

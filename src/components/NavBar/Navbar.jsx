@@ -148,8 +148,10 @@ class Navbar extends React.Component {
                             {
                                 this.state.isMiniBagOpen ? (
                                         <Minibag
+                                            // cart={this.state.cart}
                                             currency={this.props.currency}
                                             toggleMiniBag={this.toggleMiniBag}
+                                            {...this.props}
                                         />
                                     ) : ''
                             }

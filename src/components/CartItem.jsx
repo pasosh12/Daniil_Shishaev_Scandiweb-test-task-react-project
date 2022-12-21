@@ -1,11 +1,9 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {store} from "../redux/store";
-// import deleteIcon from "../Static/delete.svg";
 
 import '../styles/cart.css'
 import CartGallery from "./CartGallery";
-import AttributeItem from "./AttributeItem";
 import AttributeProductPage from "./ProductPage/AttributeProductPage";
 import AttributesActive from "./ProductPage/AttributesActive";
 
@@ -26,7 +24,8 @@ class CartItem extends Component {
             });
 
             this.setState({
-                quantity: item.quantity ? item.quantity : 0
+                quantity: item  ? item.quantity : 0,
+                currencySymbol: this.props.currencySymbol,
 
             });
         });
@@ -35,7 +34,6 @@ class CartItem extends Component {
 
     componentWillUnmount() {
         this.unsub();
-
     }
 
     increment = () => {
@@ -53,27 +51,20 @@ class CartItem extends Component {
 
     render() {
         let el = this.props.data;
-
         return (
-            <div className='item'>
-                <div className='left'>
-                    <div className='productName'>
+            <div className='product_card_basket'>
+                <div className='product_description'>
+                    <div className='product_name'>
                         <p>{this.props.data.brand}</p>
                         <p>{this.props.data.name}</p>
                     </div>
-                    <div className='price'>
-                        {this.props.price.currency && (<>
-                                {this.props.price.currency.symbol}
-                                {this.props.price.amount}
-                            </>
-
-                        )}
-
+                    <div className='product_price'>
+                        {this.props.currentCurrencySymbol}
+                        {this.props.price.amount}
                     </div>
 
                     <div className='attributes'>
                         <AttributesActive data={this.props.data}/>
-
                     </div>
 
                     {/*////////////////////////////////////////////*/}
@@ -90,24 +81,21 @@ class CartItem extends Component {
                     // :
                     // <div className='outOfStock'>Out of stock</div>
                 }
-                <div className='right'>
+                <div className='img_block_basket'>
                     {/*<div className={styles.productQuantity}>*/}
                     <div className='counter'>
-
-                        <button onClick={this.increment}>+</button>
-                        <p className='productQuantity'>{this.state.quantity}</p>
-                        <button onClick={this.decrement}>-</button>
+                        <div className='plus' onClick={this.increment}>&#43;</div>
+                        <div className='product_quantity'>{this.state.quantity}</div>
+                        <div className='minus' onClick={this.decrement}>&#8722;</div>
                     </div>
                     {/*<CartGallery name={this.props.data.name} gallery={this.props.data.gallery} />*/}
-                    <div className='mainImageContainer'>
+                    <div className='images_container'>
                         <img
                             src={this.props.data.image}
                             width="150"
                             height="auto"
                             alt="prod"
                         />
-
-
                     </div>
 
                 </div>
@@ -116,9 +104,9 @@ class CartItem extends Component {
 }
 
 const mapStateToProps = (state) => {
-
     return {
-        gallery: state.gallery
+        gallery: state.gallery,
+        // currencySymbol: state.currencySymbol
     }
 }
 const mapDispatchToProps = (dispatch) => {
