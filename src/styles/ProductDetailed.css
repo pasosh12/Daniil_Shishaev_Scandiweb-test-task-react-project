@@ -3,6 +3,9 @@
     justify-content: space-between;
     align-items: start;
     cursor: pointer;
+    height: max-content;
+    max-width: 1238px;
+    margin: 0 auto;
 }
 
 .flex_product_block .product_pictures img {

@@ -1,11 +1,9 @@
-// import {Badge} from "@material-ui/core";
-
 import React from "react";
 import "../../styles/navbarDesktopView.css";
 import styled from "styled-components";
-import CartLogoImage from "../../assets/images/CartLogo.svg"
+import CartLogoImage from "../../assets/images/ShopLogo.svg"
 import {ReactComponent as ShoppingCartLogo} from "../../assets/images/ShoppingCart.svg"
-import {Link, NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {store} from "../../redux/store";
 import Minibag from "./MiniBag";
 import upArrow from "../../assets/images/upArrow.svg"
@@ -58,7 +56,6 @@ class Navbar extends React.Component {
         this.setState({
             isMiniBagOpen: !this.state.isMiniBagOpen,
         });
-
         if (window.location.pathname.split("/")[1] === "bag") {
             this.setState({
                 isMiniBagOpen: false,
@@ -71,30 +68,21 @@ class Navbar extends React.Component {
         })
     }
     changeCategory = (name, index) => {
-        // navigate("/")
         this.props.changeCategory(name);
         this.props.changeCategoryIndex(index)
-    }
-
-    categoryToggle = () => {
-
     }
 
     render() {
         return (
             <div className='wrapper'>
-
-
                 <div className='header'>
                     <div className='headerContainer'>
                         <nav className='navigation'>
-
                             <Link to={{pathname: '/'}} className='link'>
                                 {
                                     this.props.categories.map((item, index) => (
                                         <span
                                             onClick={() => this.changeCategory(item.name, index)}
-                                            // to={`/${item.name}`}
                                             className={this.props.categoryIndex === index ? 'headerElementSelected'
                                                 : 'headerElement'}
                                             key={item.name}
@@ -105,15 +93,11 @@ class Navbar extends React.Component {
                                     ))
                                 }
                             </Link>
-
                         </nav>
-
                         <div className='logoContainer'>
                             <Logo className="logo"></Logo>
                         </div>
-
                         <div className='shoppingCartAndCurrencyContainer'>
-                            {/*<div className='smallContainer'>*/}
                             <div className='currencyButtonContainer'>
                                 <div className='currencyButton'>
                                     <div> {this.props.currencySymbol}</div>
@@ -140,29 +124,24 @@ class Navbar extends React.Component {
                             <div className='shoppingCartButtonContainer'>
                                 <button className='shoppingCartButton' onClick={this.toggleMiniBag}>
                                     <ShoppingCartLogo/>
-
                                     <span className='totalItems'>{this.props.cartQuantity}</span>
                                 </button>
                             </div>
-
                             {
                                 this.state.isMiniBagOpen ? (
-                                        <Minibag
-                                            // cart={this.state.cart}
-                                            currency={this.props.currency}
-                                            toggleMiniBag={this.toggleMiniBag}
-                                            {...this.props}
-                                        />
-                                    ) : ''
+                                    <Minibag
+                                        cart={this.state.cart}
+                                        currency={this.props.currency}
+                                        toggleMiniBag={this.toggleMiniBag}
+                                    />
+                                ) : ''
                             }
                         </div>
                     </div>
                 </div>
             </div>
-            // </div>
         );
     }
 }
-
 
 export default Navbar

@@ -1,6 +1,4 @@
 import React, {Fragment} from "react";
-import {buttonProductPageContext} from "../../context/buttonProductPageContext";
-import styles from "../../styles/ProductDetailed.css"
 import {connect} from "react-redux";
 import {store} from "../../redux/store";
 

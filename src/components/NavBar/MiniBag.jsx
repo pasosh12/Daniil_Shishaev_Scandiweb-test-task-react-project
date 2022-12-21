@@ -1,13 +1,9 @@
 import React, {Component} from "react";
-// import '../../styles/cartSlider.css'
-import '../../styles/MiniCartTest.css'
+import '../../styles/MiniCart.css'
 import {connect} from "react-redux";
-import CartItem from "../CartItem";
+import CartItem from "../CartComponents/CartItem";
 import {NavLink} from "react-router-dom";
 import {store} from '../../redux/store';
-
-// import '../../styles/MiniBag.module.css'
-
 
 class MiniBag extends Component {
     constructor(props) {
@@ -28,20 +24,16 @@ class MiniBag extends Component {
             this.props.toggleMiniBag()
         }
     }
-   render() {
+    render() {
+        console.log(this.props)
         const totalPrices = [];
         let currentCurrencySymbol = ''
-        let currentCurrencyPrice = 0;
-        this.props.bagItems.map(item => totalPrices.push(item.price))
-
         this.props.bagItems.map((item) => {
-            // console.log(item)
             const currentCurrencyPrice = item.prices.find(
                 (currency) => currency.currency.label === this.props.currency);
             currentCurrencySymbol = currentCurrencyPrice.currency.symbol
             totalPrices.push( item.quantity * currentCurrencyPrice.amount);
         })
-
         if (this.props.bagItems.length === 0) {
             return (
                 <div className="overflow"
@@ -68,7 +60,6 @@ class MiniBag extends Component {
                 // {/*// </div>*/}
             )
         } else return (
-
             <div className="overflow"
                  onClick={event => this.onClickOutsideOverlay(event)}>
                 <div className="modal_basket">
@@ -85,9 +76,9 @@ class MiniBag extends Component {
                                     return (
                                         <CartItem
                                             key={item.id}
-                                                  price={currentCurrencyPrice}
-                                                  data={item}
-                                                  currentCurrencySymbol={currentCurrencySymbol}/>
+                                            price={currentCurrencyPrice}
+                                            data={item}
+                                            currentCurrencySymbol={currentCurrencySymbol}/>
                                     )
                                 })
                             }
@@ -118,7 +109,6 @@ const mapStateToProps = (state) => {
     return {
         bagItems: state.bag,
         currency: state.currency,
-
     };
 };
 

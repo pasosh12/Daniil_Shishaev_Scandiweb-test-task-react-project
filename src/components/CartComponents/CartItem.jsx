@@ -1,11 +1,11 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {store} from "../redux/store";
+import {store} from "../../redux/store";
 
-import '../styles/cart.css'
+import '../../styles/cart.css'
 import CartGallery from "./CartGallery";
-import AttributeProductPage from "./ProductPage/AttributeProductPage";
-import AttributesActive from "./ProductPage/AttributesActive";
+import AttributeProductPage from "../ProductPage/AttributeProductPage";
+import AttributesActive from "../ProductPage/AttributesActive";
 
 class CartItem extends Component {
     constructor(props) {

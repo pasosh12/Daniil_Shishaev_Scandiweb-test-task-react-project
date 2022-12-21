@@ -38,6 +38,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    border-bottom: 1px solid #E5E5E5 ;
 }
 
 .cartPage .myBag .itemCounter {
@@ -234,10 +235,11 @@
 .cartPage .bottom {
     padding: 16px 0;
     background-color: #fff;
-    position: sticky;
+    /*position: sticky;*/
     left: 0;
     right: 0;
     bottom: 0;
+    margin-top: 32px;
 }
 
 .cartPage .bottom .buttons {
@@ -246,17 +248,10 @@
     width: 279px;
     /*justify-content: space-between;*/
 }
+.cartTitle{
+    margin-bottom: 50px;
 
-/*.cartPage .bottom .buttons .checkout {*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    width: 280px;*/
-/*    height: 45px;*/
-/*    background-color: #5ECE7B;*/
-/*    color:  #FFFFFF;*/
-/*    margin-bottom: 100px;*/
-/*}*/
+}
 
 .cartPage .bottom .buttons .checkout {
     border-style: none;
@@ -268,7 +263,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: raleway;
     font-weight: 600;
     font-size: 14px;
 
@@ -321,9 +315,6 @@
     margin-bottom: 30px;
 }
 
-
-
-
 .product_card_basket {
     display: flex;
     justify-content: space-between;
@@ -333,7 +324,6 @@
 }
 .cartPage .items .product_card_basket .product_description .product_price {
     margin: 12px 0;
-    font-family: Raleway;
     font-style: normal;
     font-weight: bold;
     font-size: 24px;

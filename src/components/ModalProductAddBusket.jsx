@@ -7,7 +7,6 @@ class ModalAddBusketProduct extends Component {
     }
 
     render() {
-        console.log(this.props.data)
         return (
 
             <Fragment>
@@ -17,7 +16,6 @@ class ModalAddBusketProduct extends Component {
                         <div className="container_modal">
                             <div className="name_product">{this.props.data.name}</div>
                             <div className="close" onClick={() => this.props.closeModal()}>&#10006;</div>
-
                             <AttributeProductPage item={this.props.data} />
                         </div>
                     </div>

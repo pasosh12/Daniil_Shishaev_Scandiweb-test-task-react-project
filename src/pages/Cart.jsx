@@ -1,26 +1,26 @@
 import React from "react";
 import {connect} from "react-redux";
-import CartItem from "../components/CartItem";
+import CartItem from "../components/CartComponents/CartItem";
 import '../styles/cart.css'
 import NavbarContainer from "../components/NavBar/NavbarContainer";
 
 
 class Cart extends React.Component {
-   rounded = (number) => {
+    rounded = (number) => {
         return +number.toFixed(2)
     }
+
     render() {
         const totalPrices = [];
         let currentCurrencySymbol = ''
         let totalQuantityProducts = this.props.bagItems.map(item => item.quantity).reduce((prev, curr) => prev + curr, 0)
         return (
             <div>
-                <button onClick={this.props.clearBagItems}>удалить</button>
                 <NavbarContainer/>
                 <div className='main'>
                     <div className='cartPage'>
                         <div className='myBag'>
-                            <div>Cart</div>
+                            <div className='cartTitle'>Cart</div>
                         </div>
                         <div className='items'>
                             {this.props.bagItems.map((item) => {
@@ -30,7 +30,8 @@ class Cart extends React.Component {
 
                                 totalPrices.push(item.quantity * currentCurrencyPrice.amount);
                                 return (
-                                    <CartItem key={item.id} currentCurrencySymbol={currentCurrencySymbol} price={currentCurrencyPrice} data={item}/>
+                                    <CartItem key={item.id} currentCurrencySymbol={currentCurrencySymbol}
+                                              price={currentCurrencyPrice} data={item}/>
                                 );
                             })}
                         </div>
@@ -38,7 +39,7 @@ class Cart extends React.Component {
                             <div className='tax'> Tax 21%:
                                 <span className='taxQuantityValue'>
                                 {currentCurrencySymbol}
-                                    {this.rounded(totalPrices.reduce((prev, nxt) => prev + nxt, 0)*0.21)}
+                                    {this.rounded(totalPrices.reduce((prev, nxt) => prev + nxt, 0) * 0.21)}
                             </span>
                             </div>
                             <div className='quantity'> Quantity

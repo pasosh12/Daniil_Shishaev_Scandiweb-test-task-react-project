@@ -8,8 +8,7 @@ class AttributeItem extends React.Component{
 
         const props={
             className: this.props.type+(this.props.selected ? ' selected' : ''),
-            // onClick: this.props.onSelected,
-            ...typeProps
+             ...typeProps
         }
 
         return(

@@ -1,10 +1,9 @@
 import React, {Component} from 'react'
-import {Link, NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {store} from '../redux/store'
 import '../styles/productCardList.css'
-// import style from '../styles/productCardList.css'
-import {ReactComponent as ProductCartImage} from '../assets/images/addToCart.svg';
+import {ReactComponent as ProductCartImage} from '../assets/images/addToCartIco.svg';
 import ModalAddBusketProduct from "./ModalProductAddBusket";
 
 
@@ -22,13 +21,10 @@ class Product extends Component {
                 attributes: this.props.data.attributes,
                 quantity: 1
             },
-            // isModalClosed: false,
-            isModalOpened:false,
+            isModalOpened: false,
             focus: '',
         }
     }
-
-
     componentDidMount() {
         this.unsubscribe = store.subscribe(() => {
 
@@ -40,19 +36,15 @@ class Product extends Component {
 
     addToBag = (e) => {
         e.preventDefault();
-
         const x = this.props.data.name;
-        // console.log('x', x)
         const item = store.getState().bag.find((item) => {
             return item.name === x;
         });
 
         const y = this.props.data
-        console.log('itemAttr', y.attributes)
         this.props.setAttributes(y.attributes)
         if (item) {
             this.props.incrementQunatity(item.id)
-
         } else this.props.addtoBag(this.state.product);
 
     }
@@ -60,15 +52,12 @@ class Product extends Component {
     componentWillUnmount() {
         this.unsubscribe();
     }
-
     changeProduct = (id) => {
         this.props.changeProductID(id)
     }
-
-    closeModal=(b) =>{
+    closeModal = (b) => {
         this.setState({isModalOpened: false})
     }
-
     basketButton = (id) => {
         this.props.data.id === id && this.setState({focus: `${this.props.data.id}`})
     }
@@ -81,11 +70,11 @@ class Product extends Component {
         const productInStockFlag = this.props.data.inStock
         return (
             <>
-                <button onClick={this.props.clearBagItems}>удалить </button>
+                {/*<button onClick={this.props.clearBagItems}>удалить</button>*/}
                 {this.state.isModalOpened && this.props.data
                     ?
                     <ModalAddBusketProduct data={this.props.data} closeModal={this.closeModal}/>
-                   :
+                    :
                     null
                 }
                 <div className='card' onMouseEnter={() => this.basketButton(this.props.data.id)}
@@ -98,13 +87,9 @@ class Product extends Component {
                                     <div className='image_block_card'>
                                         <img className='img_card'
                                              src={this.props.data.gallery[0]}
-                                            // height="300"
-                                            // width="auto"
                                              alt={this.props.data.name}
                                         />
-                                        {/*<ProductCartImage className='add_cart_button' onClick={this.addToBag.bind(this)}/>*/}
                                     </div>
-                                    {/*<ProductCartImage className='add_cart_button' onClick={this.setModal}/>*/}
                                     <div className='product_name'>{this.props.data.name}</div>
                                     <div className='product_price'>
                                         {currentCurrencyPrice.currency.symbol}
@@ -153,7 +138,6 @@ const mapStateToProps = (state) => {
     return {
         bagItems: state.bag,
         product: state.product,
-        // quantity: state.quantity
     }
 }
 
