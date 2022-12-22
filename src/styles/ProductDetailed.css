@@ -1,7 +1,8 @@
+
 .flex_product_block {
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: flex-start;
     cursor: pointer;
     height: max-content;
     max-width: 1238px;

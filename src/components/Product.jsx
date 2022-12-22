@@ -2,9 +2,9 @@ import React, {Component} from 'react'
 import {NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {store} from '../redux/store'
-import '../styles/productCardList.css'
+import '../styles/ProductCardList.css'
 import {ReactComponent as ProductCartImage} from '../assets/images/addToCartIco.svg';
-import ModalAddBusketProduct from "./ModalProductAddBusket";
+import ModalAddBasketProduct from "./ModalProductAddBasket";
 
 
 class Product extends Component {
@@ -70,10 +70,9 @@ class Product extends Component {
         const productInStockFlag = this.props.data.inStock
         return (
             <>
-                {/*<button onClick={this.props.clearBagItems}>удалить</button>*/}
-                {this.state.isModalOpened && this.props.data
+                 {this.state.isModalOpened && this.props.data
                     ?
-                    <ModalAddBusketProduct data={this.props.data} closeModal={this.closeModal}/>
+                    <ModalAddBasketProduct data={this.props.data} closeModal={this.closeModal}/>
                     :
                     null
                 }

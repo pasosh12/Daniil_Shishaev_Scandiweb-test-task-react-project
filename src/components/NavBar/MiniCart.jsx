@@ -21,23 +21,24 @@ class MiniCart extends Component {
     }
     onClickOutsideOverlay = (e) => {
         if (e.target.className === 'overflow') {
-            this.props.toggleMiniBag()
+            return this.props.toggleMiniBag()
         }
     }
     render() {
-        console.log(this.props)
         const totalPrices = [];
         let currentCurrencySymbol = ''
-        this.props.bagItems.map((item) => {
-            const currentCurrencyPrice = item.prices.find(
-                (currency) => currency.currency.label === this.props.currency);
+        this.props.bagItems.forEach((item) => {
+             const currentCurrencyPrice = item.prices.find( (currency) => {
+                return currency.currency.label === this.props.currency
+            });
             currentCurrencySymbol = currentCurrencyPrice.currency.symbol
             totalPrices.push( item.quantity * currentCurrencyPrice.amount);
         })
         if (this.props.bagItems.length === 0) {
             return (
                 <div className="overflow"
-                     onClick={(event) => this.onClickOutsideOverlay(event)}>
+                     onClick={(event) => this.onClickOutsideOverlay(event)}
+                    >
                     <div className="modal_basket">
                         <div className="container_modal_basket">
                             <div className="title">
@@ -54,7 +55,6 @@ class MiniCart extends Component {
                         </div>
                     </div>
                 </div>
-
             )
         } else return (
             <div className="overflow"
@@ -67,8 +67,9 @@ class MiniCart extends Component {
                         <div className="mini_attributes">
                             {
                                 this.props.bagItems.map(item => {
-                                    const currentCurrencyPrice = item.prices.find(
-                                        (currency) => currency.currency.label === this.props.currency);
+                                    const currentCurrencyPrice = item.prices.find( (currency) => {
+                                            return currency.currency.label === this.props.currency
+                                        });
                                     currentCurrencySymbol = currentCurrencyPrice.currency.symbol
                                     return (
                                         <CartItem

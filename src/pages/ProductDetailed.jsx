@@ -61,7 +61,6 @@ class ProductDetailed extends Component {
       }
     }`;
 
-
         return (
             <Query query={GET_DATA}>
                 {({data, loading, error}) => {
@@ -91,8 +90,6 @@ class ProductDetailed extends Component {
                                         <div className='prise_title'>Price:</div>
                                         <div
                                             className='price'>{currentCurrencyPrice.currency.symbol}{currentCurrencyPrice.amount}</div>
-                                        {/*<ProductOptions data={data.product}/>*/}
-
                                         {data.product.inStock ?
                                             <AttributeProductPage item={data.product}
                                                                   price={currentCurrencyPrice.amount}/>
@@ -104,18 +101,6 @@ class ProductDetailed extends Component {
                                              dangerouslySetInnerHTML={{__html: data.product.description}}/>
                                     </div>
                                 </div>
-                                {/*{console.log(this.props)}*/}
-                                {/*{*/}
-                                {/*    this.state.flag.length*/}
-                                {/*        ?*/}
-                                {/*        <div className="overflow" onClick={(event) => event.target.className === "overflow" && this.setState({ flag: '' })}>*/}
-                                {/*            <div className="img_and_close_block">*/}
-                                {/*                /!*<img src={this.state.flag} />*!/*/}
-                                {/*                /!*<div className="close" onClick={() => this.setState({ flag: '' })}>&#10006;</div>*!/*/}
-                                {/*            </div>*/}
-                                {/*        </div>*/}
-                                {/*        : null*/}
-                                {/*}*/}
                             </>
                         );
                     }
@@ -126,5 +111,4 @@ class ProductDetailed extends Component {
     }
 }
 
-// export default GET_PRODUCTS(ProductDetailed)
 export default connect(null)(ProductDetailed);

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom/client";
 import App from './App';
 import {Provider} from "react-redux";
 import {store} from "./redux/store";
@@ -15,11 +15,12 @@ const client = new ApolloClient({
     cache: new InMemoryCache()
 });
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root"))
+root.render(
     <ApolloProvider client={client}>
         <Provider store={store}>
             <App/>
         </Provider>
-    </ApolloProvider>,
-    document.getElementById('root')
-);
+    </ApolloProvider>
+)
+

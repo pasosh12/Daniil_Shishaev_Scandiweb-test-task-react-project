@@ -1,10 +1,7 @@
 import React, {Component} from "react";
+import '../../styles/Cart.css'
 import {connect} from "react-redux";
 import {store} from "../../redux/store";
-
-import '../../styles/Cart.css'
-import CartGallery from "./CartGallery";
-import AttributeProductPage from "../ProductPage/AttributeProductPage";
 import AttributesActive from "../ProductPage/AttributesActive";
 
 class CartItem extends Component {
@@ -50,8 +47,8 @@ class CartItem extends Component {
             <div className='product_card_basket'>
                 <div className='product_description'>
                     <div className='product_name'>
-                        <p>{this.props.data.brand}</p>
-                        <p>{this.props.data.name}</p>
+                        <p>{el.brand}</p>
+                        <p>{el.name}</p>
                     </div>
                     <div className='product_price'>
                         {this.props.currentCurrencySymbol}
@@ -59,7 +56,7 @@ class CartItem extends Component {
                     </div>
 
                     <div className='attributes'>
-                        <AttributesActive data={this.props.data}/>
+                        <AttributesActive data={el}/>
                     </div>
                 </div>
                 <div className='img_block_basket'>
@@ -68,10 +65,9 @@ class CartItem extends Component {
                         <div className='product_quantity'>{this.state.quantity}</div>
                         <div className='minus' onClick={this.decrement}>&#8722;</div>
                     </div>
-                    {/*<CartGallery name={this.props.data.name} gallery={this.props.data.gallery} />*/}
                     <div className='images_container'>
                         <img
-                            src={this.props.data.image}
+                            src={el.image}
                             width="150"
                             height="auto"
                             alt="prod"

@@ -11,7 +11,6 @@ class NavbarContainerWith extends React.Component {
         super(props);
         this.state = {
             category: store.getState().category,
-                // currency: store.getState().currency,
             categories: this.props.data.categories,
             currenciesArray: store.getState().currenciesArray,
         }

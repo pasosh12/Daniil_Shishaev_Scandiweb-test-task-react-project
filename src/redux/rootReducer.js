@@ -70,12 +70,6 @@ const rootReducer = (state = initialState, action) => {
                 category: action.category,
             }
         }
-        case SET_CURRENCIES_ARRAY: {
-            return {
-                ...state,
-                currenciesArray : action.currenciesArray
-            }
-        }
         case CURRENCY_UPDATE : {
             return {
                 ...state,

@@ -2,9 +2,6 @@ import React, {Component, Fragment} from "react";
 import AttributeProductPage from "./ProductPage/AttributeProductPage";
 import "../styles/ModalProductAddBusket.css"
 class ModalAddBusketProduct extends Component {
-    constructor(props) {
-        super(props)
-    }
 
     render() {
         return (

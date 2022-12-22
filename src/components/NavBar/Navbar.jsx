@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/navbarDesktopView.css";
+import "../../styles/NavbarDesktopView.css";
 import styled from "styled-components";
 import CartLogoImage from "../../assets/images/ShopLogo.svg"
 import {ReactComponent as ShoppingCartLogo} from "../../assets/images/ShoppingCart.svg"
@@ -87,7 +87,6 @@ class Navbar extends React.Component {
                                                 : 'headerElement'}
                                             key={item.name}
                                         >
-
                                     {item.name}
                                 </span>
                                     ))
@@ -102,13 +101,13 @@ class Navbar extends React.Component {
                                 <div className='currencyButton'>
                                     <div className='currencySymbol'> {this.props.currencySymbol}</div>
                                     {this.state.isCurrencyArrayOpen ?
-                                        <img src={upArrow} onClick={this.showCurrencies}/> :
-                                        <img src={downArrow} onClick={this.showCurrencies}/>}
+                                        <img alt={upArrow} src={upArrow} onClick={this.showCurrencies}/> :
+                                        <img alt={upArrow} src={downArrow} onClick={this.showCurrencies}/>}
                                     {this.state.isCurrencyArrayOpen ? (
                                             <div className='prise_modal'>
                                                 <div className='container_price_modal'>
                                                     {this.props.currenciesArray.map(currency => (
-                                                        <div className='conversion'>
+                                                        <div key={currency.value} className='conversion'>
                                                             <option className='currencyButton' key={currency.value}
                                                                     onClick={this.handleCurrency}>{currency.label}
                                                             </option>

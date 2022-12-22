@@ -1,6 +1,6 @@
 import React from "react";
 import  styles from "../styles/HomePage.module.css"
-import './../styles/productCardList.css'
+import '../styles/ProductCardList.css'
 import {store} from "../redux/store"
 import Product from '../components/Product'
 import {gql} from "@apollo/client"
