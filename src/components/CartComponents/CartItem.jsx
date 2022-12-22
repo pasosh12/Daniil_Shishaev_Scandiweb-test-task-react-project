@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {store} from "../../redux/store";
 
-import '../../styles/cart.css'
+import '../../styles/Cart.css'
 import CartGallery from "./CartGallery";
 import AttributeProductPage from "../ProductPage/AttributeProductPage";
 import AttributesActive from "../ProductPage/AttributesActive";
@@ -12,10 +12,8 @@ class CartItem extends Component {
         super(props);
         this.state = {
             quantity: this.props.data.quantity,
-            // currency: this.props.cu
         };
     }
-
     componentDidMount() {
         this.unsub = store.subscribe(() => {
             const x = this.props.data.id;
@@ -30,12 +28,9 @@ class CartItem extends Component {
             });
         });
     }
-
-
     componentWillUnmount() {
         this.unsub();
     }
-
     increment = () => {
         this.props.incrementQunatity(this.props.data.id);
     };
@@ -66,23 +61,8 @@ class CartItem extends Component {
                     <div className='attributes'>
                         <AttributesActive data={this.props.data}/>
                     </div>
-
-                    {/*////////////////////////////////////////////*/}
-                    {/*/!*{Object.entries(this.props.data.attributes).map((attribute) => {*!/*/}
-                    {/*/!*    return (<span key={attribute}>*!/*/}
-                    {/*/!*           {attribute[0]}: <b>{attribute[1]}</b> {" "}*!/*/}
-                    {/*/!*         </span>);*!/*/}
-                    {/*/!*})}*!/*/}
                 </div>
-                {/*{data.product.inStock ?*/}
-                {
-
-
-                    // :
-                    // <div className='outOfStock'>Out of stock</div>
-                }
                 <div className='img_block_basket'>
-                    {/*<div className={styles.productQuantity}>*/}
                     <div className='counter'>
                         <div className='plus' onClick={this.increment}>&#43;</div>
                         <div className='product_quantity'>{this.state.quantity}</div>
@@ -106,7 +86,6 @@ class CartItem extends Component {
 const mapStateToProps = (state) => {
     return {
         gallery: state.gallery,
-        // currencySymbol: state.currencySymbol
     }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -114,7 +93,6 @@ const mapDispatchToProps = (dispatch) => {
         incrementQunatity: (id) => dispatch({type: "QUANTITY_INC", id}),
         decrementQunatity: (id) => dispatch({type: "QUANTITY_DEC", id}),
         removeItem: (id) => dispatch({type: "REMOVE_BAG_ITEM", id}),
-
     };
 };
 

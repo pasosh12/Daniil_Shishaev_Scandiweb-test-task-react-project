@@ -10,3 +10,7 @@ body{
 .product_attributes:last-child {
   margin-bottom: 0px;
 }
+.container {
+  max-width: 1238px;
+  margin: 0 auto;
+}

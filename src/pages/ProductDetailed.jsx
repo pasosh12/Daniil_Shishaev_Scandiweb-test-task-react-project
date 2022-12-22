@@ -63,21 +63,19 @@ class ProductDetailed extends Component {
 
 
         return (
-
             <Query query={GET_DATA}>
                 {({data, loading, error}) => {
-
                     if (error) return <h1 style={{textAlign: "center", margin: "10rem"}}>An Error Occured.</h1>
-                    if (loading) return <h1 style={{textAlign: "center", margin: "10rem"}}>Loading...</h1>
-
+                    else if (loading) return <h1 style={{textAlign: "center", margin: "10rem"}}>Loading...</h1>
+                    else if (!data.product) return <h1 style={{textAlign: "center", margin: "10rem"}}>An Error
+                        Occured.</h1>
                     else {
-
                         const currentCurrencyPrice = data ? data.product.prices.find(currency => currency.currency.label === this.state.currency) : null
-                         return (
+                        return (
                             <>
                                 <NavbarContainer/>
                                 <div className='flex_product_block'>
-                                <div className='product_pictures'>
+                                    <div className='product_pictures'>
                                         {
                                             data.product.gallery.map((image, index) => {
                                                 return <img alt={image} src={image} key={image}

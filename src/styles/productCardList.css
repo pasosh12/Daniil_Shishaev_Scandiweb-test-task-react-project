@@ -1,10 +1,8 @@
 
 .categoryTitle {
-    font-family: Raleway;
     font-size: 42px;
     text-transform: capitalize;
     margin-top: 10px;
-    padding-left: 101px;
 }
 
 .card {
@@ -57,8 +55,8 @@
 .card a .stock_text {
     position: absolute;
     z-index: 100;
-    top: 162px;
-    left: 106px;
+    top: 35%;
+    left: 27%;
     color: #8D8F9A;
     font-weight: 400;
     font-size: 24px;

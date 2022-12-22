@@ -1,0 +1,15 @@
+.modal_attribute_product{
+    position: relative;
+    width: 450px;
+    height: 500px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal_attribute_product .container_modal .close{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+}

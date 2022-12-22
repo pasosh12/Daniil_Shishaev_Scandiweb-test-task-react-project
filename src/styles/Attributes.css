@@ -39,7 +39,8 @@
 
 .attributes .product_attributes .new_attributes.active.color_attr {
     transform: scale(1.1);
-    border: 2px solid #5ECE7B;
+    border:  double 3px #5ECE7B ;
+    background-clip: padding-box;
 }
 
 .attributes .product_attributes .new_attributes:last-child {

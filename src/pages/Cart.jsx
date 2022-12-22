@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
+import '../styles/Cart.css'
 import CartItem from "../components/CartComponents/CartItem";
-import '../styles/cart.css'
 import NavbarContainer from "../components/NavBar/NavbarContainer";
 
 
@@ -22,19 +22,23 @@ class Cart extends React.Component {
                         <div className='myBag'>
                             <div className='cartTitle'>Cart</div>
                         </div>
-                        <div className='items'>
-                            {this.props.bagItems.map((item) => {
-                                const currentCurrencyPrice = item.prices.find(
-                                    (currency) => currency.currency.label === this.props.currency);
-                                currentCurrencySymbol = currentCurrencyPrice.currency.symbol
+                        {totalQuantityProducts > 0 ?
+                            <div className='items'>
+                                {this.props.bagItems.map((item) => {
+                                    const currentCurrencyPrice = item.prices.find(
+                                        (currency) => currency.currency.label === this.props.currency);
+                                    currentCurrencySymbol = currentCurrencyPrice.currency.symbol
 
-                                totalPrices.push(item.quantity * currentCurrencyPrice.amount);
-                                return (
-                                    <CartItem key={item.id} currentCurrencySymbol={currentCurrencySymbol}
-                                              price={currentCurrencyPrice} data={item}/>
-                                );
-                            })}
-                        </div>
+                                    totalPrices.push(item.quantity * currentCurrencyPrice.amount);
+                                    return (
+                                        <CartItem key={item.id} currentCurrencySymbol={currentCurrencySymbol}
+                                                  price={currentCurrencyPrice} data={item}/>
+                                    );
+                                })}
+                            </div>
+                            :
+                            <div className='noProduct'>No products in cart yet</div>
+                        }
                         <div className='bottom'>
                             <div className='tax'> Tax 21%:
                                 <span className='taxQuantityValue'>
@@ -59,6 +63,7 @@ class Cart extends React.Component {
                                 </button>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

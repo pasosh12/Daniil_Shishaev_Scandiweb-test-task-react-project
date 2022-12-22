@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from "react";
 import AttributeProductPage from "./ProductPage/AttributeProductPage";
-
+import "../styles/ModalProductAddBusket.css"
 class ModalAddBusketProduct extends Component {
     constructor(props) {
         super(props)
@@ -14,8 +14,8 @@ class ModalAddBusketProduct extends Component {
                      onClick={(event) => event.target.className === 'overflow' && this.props.closeModal('')}>
                     <div className="modal_attribute_product">
                         <div className="container_modal">
-                            <div className="name_product">{this.props.data.name}</div>
                             <div className="close" onClick={() => this.props.closeModal()}>&#10006;</div>
+                            <div className="name_product">{this.props.data.name}</div>
                             <AttributeProductPage item={this.props.data} />
                         </div>
                     </div>

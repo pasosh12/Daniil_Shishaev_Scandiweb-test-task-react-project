@@ -5,7 +5,7 @@ import CartLogoImage from "../../assets/images/ShopLogo.svg"
 import {ReactComponent as ShoppingCartLogo} from "../../assets/images/ShoppingCart.svg"
 import {Link} from "react-router-dom";
 import {store} from "../../redux/store";
-import Minibag from "./MiniBag";
+import Minibag from "./MiniCart";
 import upArrow from "../../assets/images/upArrow.svg"
 import downArrow from "../../assets/images/downArrow.svg"
 
@@ -100,7 +100,7 @@ class Navbar extends React.Component {
                         <div className='shoppingCartAndCurrencyContainer'>
                             <div className='currencyButtonContainer'>
                                 <div className='currencyButton'>
-                                    <div> {this.props.currencySymbol}</div>
+                                    <div className='currencySymbol'> {this.props.currencySymbol}</div>
                                     {this.state.isCurrencyArrayOpen ?
                                         <img src={upArrow} onClick={this.showCurrencies}/> :
                                         <img src={downArrow} onClick={this.showCurrencies}/>}

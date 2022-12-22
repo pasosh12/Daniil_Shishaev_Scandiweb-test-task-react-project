@@ -5,13 +5,8 @@ import Cart from "./pages/Cart";
 import {BrowserRouter, Route} from "react-router-dom";
 import {Routes} from "react-router";
 import './styles/index.css'
-import ModalAddBusketProduct from "./components/ModalProductAddBusket";
 
 
-const production = process.env.REACT_APP_ENV === 'production';
-
-
-// ModalAddBusketProduct.propTypes = {openModal: PropTypes.func};
 
 class App extends Component {
 
@@ -23,23 +18,17 @@ class App extends Component {
             idProduct: '',
         }
     }
-    idProduct = (id) => this.setState({ idProduct: id })
 
-    openModalProductAddBusketFunction = (element) => this.setState({openModalProductAddBusket: element})
+    idProduct = (id) => this.setState({idProduct: id})
 
     render() {
         return (
-
             <BrowserRouter>
                 <div className="container">
-                    {/*<ModalAddBusketProduct openModalProductAddBusket={this.state.openModalProductAddBusket}*/}
-                    {/*                       closeModal={this.openModalProductAddBusketFunction} />*/}
                     <Routes>
                         <Route path="/" element={<Home/>}/>
-                        <Route path="/cart" element={<Cart />}/>
+                        <Route path="/cart" element={<Cart/>}/>
                         <Route path='/product/:id' element={<ProductDetailed/>}/>
-
-                        {/*<Route path={'/product'} element={<ProductDetailed2 idProduct={this.state.idProduct}/>}/>*/}
                     </Routes>
                 </div>
             </BrowserRouter>

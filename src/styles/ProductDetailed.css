@@ -31,13 +31,6 @@
     margin: 40px 0 10px 0;
 }
 
-.flex_product_block .description_product .size_title {
-    color: #1D1F22;
-    font-weight: 700;
-    font-size: 18px;
-    text-transform: uppercase;
-    margin: 0 0 10px 0;
-}
 
 .flex_product_block .description_product .price {
     color: #1D1F22;
@@ -66,7 +59,6 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 26px;
-
 }
 
 .name_product {
@@ -95,15 +87,12 @@
 }
 
 .button_add_to_cart {
-
     width: 292px;
     height: 52px;
     background-color: #5ECE7B;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     border-style: none;
     color: #FFFFFF;
     font-weight: 600;

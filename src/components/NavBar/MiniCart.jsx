@@ -5,7 +5,7 @@ import CartItem from "../CartComponents/CartItem";
 import {NavLink} from "react-router-dom";
 import {store} from '../../redux/store';
 
-class MiniBag extends Component {
+class MiniCart extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -41,7 +41,7 @@ class MiniBag extends Component {
                     <div className="modal_basket">
                         <div className="container_modal_basket">
                             <div className="title">
-                                <p>Your cart is empty</p>
+                                <div className='noProduct'>No products in cart yet</div>
                                 <div className="buttons_modal">
                                     <NavLink to={'/cart '}>
                                         <div className="button_view_bag"
@@ -54,10 +54,7 @@ class MiniBag extends Component {
                         </div>
                     </div>
                 </div>
-                // {/*// <div className='cartOverlay empty'>*/}
-                // {/*//     /!*<EmptyCart />*!/*/}
-                // {/*//     <p>Your cart is empty</p>*/}
-                // {/*// </div>*/}
+
             )
         } else return (
             <div className="overflow"
@@ -123,4 +120,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MiniBag);
+export default connect(mapStateToProps, mapDispatchToProps)(MiniCart);
