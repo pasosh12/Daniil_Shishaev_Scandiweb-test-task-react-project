@@ -25,6 +25,19 @@
     font-weight: 400;
     font-size: 16px;
 }
+.attributes .product_attributes .new_attributes_color{
+    width: 32px;
+    height: 32px;
+    border: 1px solid #1D1F22;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 12px;
+    color: #1D1F22;
+    font-weight: 400;
+    font-size: 16px;
+}
 
 .attributes .product_attributes .color_attr {
     width: 32px;
@@ -36,8 +49,19 @@
     background-color: #1D1F22;
     color: #FFFFFF;
 }
+.attributes .product_attributes .new_attributes_color.active {
+    width: 32px;
+    height: 32px;
+    transform: scale(1.1);
+    background-color: #1D1F22;
+    color: #FFFFFF;
+    border:  double 3px #5ECE7B ;
+    background-clip: padding-box;
+}
 
 .attributes .product_attributes .new_attributes.active.color_attr {
+    width: 32px;
+    height: 32px;
     transform: scale(1.1);
     border:  double 3px #5ECE7B ;
     background-clip: padding-box;

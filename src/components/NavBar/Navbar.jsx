@@ -107,8 +107,8 @@ class Navbar extends React.Component {
                                             <div className='prise_modal'>
                                                 <div className='container_price_modal'>
                                                     {this.props.currenciesArray.map(currency => (
-                                                        <div key={currency.value} className='conversion'>
-                                                            <option className='currencyButton' key={currency.value}
+                                                        <div key={currency.label} className='conversion'>
+                                                            <option className='currencyButton' key={currency.label}
                                                                     onClick={this.handleCurrency}>{currency.label}
                                                             </option>
                                                         </div>

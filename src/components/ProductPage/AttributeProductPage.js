@@ -17,14 +17,15 @@ export default class AttributeProductPage extends React.Component {
                 {
                     this.props.item.attributes.map(el =>
                         <div className="attributes" key={el.id}>
-                            <div className="name_attributes">{el.name + ':'}</div>
+                            <div className="name_attributes">
+                                {el.name + ':'}</div>
                             <div className="product_attributes">
                                 {
-                                    el.id === "Color"
+                                    el.name === "Color"
                                         ?
                                         el.items.map(it =>
                                             <div
-                                                className={this.state.massColorProduct.filter(item => item.name === it.id).length ? "new_attributes active" : "new_attributes"}
+                                                className={this.state.massColorProduct.filter(item => item.name === it.id).length ? "new_attributes_color active" : "new_attributes_color"}
                                                 onClick={() => {
                                                     this.state.massColorProduct.length
                                                         ? this.setState({
@@ -33,7 +34,7 @@ export default class AttributeProductPage extends React.Component {
                                                                 title: el.name,
                                                                 name: it.id,
                                                                 value: it.value,
-                                                                id: el.id
+                                                                id: el.id,
                                                             } : item)
                                                         })
                                                         : this.setState({
@@ -74,8 +75,8 @@ export default class AttributeProductPage extends React.Component {
                                                             }]
                                                         })
                                                 }}
-                                                key={it.id + '_' + el.name}
-                                            >{it.value}
+                                                key={it.id + '_' + el.name}>
+                                                {it.value}
                                             </div>
                                         )
                                 }
