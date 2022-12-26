@@ -35,7 +35,8 @@ class Navbar extends React.Component {
                 currency: store.getState().currency,
                 categories: store.getState().categories,
                 cart: store.getState().bag,
-                currenciesArray: store.getState().currenciesArray
+                currenciesArray: store.getState().currenciesArray,
+                currencySymbol:store.getState.currencySymbol
             });
         });
     }
