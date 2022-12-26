@@ -21,7 +21,7 @@ const initialState = {
     isMiniBagOpen:false,
     productID: currentID,
     currency: preferredCurrency || "USD",
-    currencySymbol : preferredCurrencySymbol || "",
+    currencySymbol : preferredCurrencySymbol || "$",
     bag: bag || [],
     categoryIndex:0,
     categories: [],
