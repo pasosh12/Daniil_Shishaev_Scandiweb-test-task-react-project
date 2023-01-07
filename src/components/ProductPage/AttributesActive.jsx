@@ -25,7 +25,7 @@ export default class AttributesActive extends React.Component {
                                 :
                                 item.items.map(it =>
                                     <div
-                                        className={bagProduct.selectedAttributes.filter(i => i.name === it.id
+                                        className={bagProduct.selectedAttributes.filter(i => i.name === it.id && i.title===item.id
                                         )[0] ? "new_attributes active" : "new_attributes"}
                                         key={it.id}>
                                         {it.value}
